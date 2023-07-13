@@ -10,6 +10,7 @@
 ---
 <!-- TOC depthFrom:1 depthTo:2 withLinks:1 updateOnSave:0 orderedList:0 -->
 
+- [Fork changes](#fork)
 - [Introduction](#introduction)
 - [Requirements](#requirements)
 - [Installation](#installation)
@@ -31,6 +32,9 @@
 
 ---
 
+# Fork
+
+updated to use Plex web api instead of scanner executable
 
 # Introduction
 
