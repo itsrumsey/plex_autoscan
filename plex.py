@@ -113,6 +113,7 @@ def scan(config, lock, path, scan_for, section, scan_type, resleep_paths, scan_t
         final_cmd = '"%s" --scan --refresh --section %s --directory "%s"' \
                     % (config['PLEX_SCANNER'], str(section), scan_path)
     else:
+        """
         cmd = 'export LD_LIBRARY_PATH=' + config['PLEX_LD_LIBRARY_PATH'] + ';'
         if not config['USE_DOCKER']:
             cmd += 'export PLEX_MEDIA_SERVER_APPLICATION_SUPPORT_DIR=' + config['PLEX_SUPPORT_DIR'] + ';'
@@ -126,6 +127,8 @@ def scan(config, lock, path, scan_for, section, scan_type, resleep_paths, scan_t
             final_cmd = 'sudo -u %s bash -c %s' % (config['PLEX_USER'], cmd_quote(cmd))
         else:
             final_cmd = cmd
+        """
+        final_cmd = 'curl --get -H "X-Plex-Token:XXX" --data-urlencode "path=' + scan_path + '" "http://172.17.0.1:32400/library/sections/' + str(section) + '/refresh"'
 
     # invoke plex scanner
     priority = utils.get_priority(config, scan_path)
